@@ -130,7 +130,7 @@ input {
 /* Style the "Add" button */
 .addBtn {
   padding: 10px;
-  width: 25%;
+  width: 15%;
   border: none;
   background: #F5F5DC;
   color: #555;
@@ -153,7 +153,8 @@ input {
   <h2 style="margin:5px">Trip Planning</h2>
   <form action="" method="POST">
     {% csrf_token %}
-    <input type="text" name="destination" id="destination" placeholder="Destination">
+    <input type="text" name="origin" id="origin" placeholder="From">
+    <input type="text" name="destination" id="destination" placeholder="To">
     <input type="date" name="date" id="date" placeholder="Date">
     <button type="submit" class="addBtn">Add</button>
   </form>
@@ -162,7 +163,13 @@ input {
 <ul id="myUL">
   {% for trip in trips %}
     <li> 
-      <span class="trip">
+      <span STYLE="font-weight:bolder", class="trip">
+        {{trip.origin}} 
+      </span>
+      <span STYLE="font-weight:lighter", class="trip">
+        to
+      </span>
+      <span STYLE="font-weight:bolder", class="trip">
         {{trip.destination}} 
       </span>
       <span class="trip">

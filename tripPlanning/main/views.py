@@ -7,7 +7,7 @@ def index(req):
     trip = Trip.objects.all()
     print(trip)
     if req.method == 'POST':
-        trip = Trip(destination=req.POST['destination'], departureDate=req.POST['date'])
+        trip = Trip(origin = req.POST['origin'], destination=req.POST['destination'], departureDate=req.POST['date'])
         trip.save()
         return redirect('/')
 
